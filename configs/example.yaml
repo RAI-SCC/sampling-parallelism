@@ -1,0 +1,33 @@
+# Example configuration for scripts/train.py and scripts/train_exact_loss.py.
+#
+# Copy this file, edit the paths, and run:
+#   python scripts/train.py --config configs/example.yaml
+#
+# Any value here can be overridden on the command line, e.g.:
+#   python scripts/train.py --config configs/example.yaml --parallelization SP
+
+# --- Required: environment-specific paths (no defaults ship in the repo) ---
+data_root: ./data          # directory where datasets live / are downloaded to
+output_dir: ./results      # directory where result .pt files are written
+
+# --- Required: global compute budget (split across processes automatically) ---
+global_sample_num: 16      # total weight samples across all processes
+global_batch_size: 128     # total mini-batch size across all processes
+parallelization: SP     # one of: local | SP | DDP | HYBRID
+gpus_per_node: 4           # GPUs per node, used by the HYBRID strategy
+
+# --- Model ---
+model_name: TinySimpleViT
+activation: ReLU
+prior_name: MeanFieldNormal
+
+# --- Dataset ---
+dataset: CIFAR10
+
+# --- Optimization ---
+optimizer_name: Adam
+learning_rate: 0.001
+heat: 0.1
+num_epochs: 80
+warmup: 80
+run_nr: 6
