@@ -182,12 +182,6 @@ def train_model(
 
             loss = loss_fn(logits, sample[-1])
 
-            print(logits.shape)
-            print(logits.mean().item())
-            print(logits.std().item())
-            print(loss_fn.log["data_fit"][-1])
-            print(loss_fn.log["kl"][-1])
-
             assert not torch.isinf(loss)
             assert not torch.isnan(loss)
             if non_bayesian:
