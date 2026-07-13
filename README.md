@@ -2,7 +2,7 @@
 
 Official repository for the paper:
 
-> *Sampling Parallelism for Fast and Efficient Bayesian Learning*
+> [Sampling Parallelism for Fast and Efficient Bayesian Learning](https://dl.acm.org/doi/10.1145/3815572.3815745)
 
 A Bayesian forward pass draws several **weight samples** and averages their
 predictions. This lets us distribute training by spliting the **number of weight samples** across processes (*sampling parallelism*).
